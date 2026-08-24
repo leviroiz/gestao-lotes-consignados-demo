@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a32824">
+  <meta name="description" content="Demonstração pública e estática de um painel para acompanhamento de lotes consignados, com perfis e dados simulados no navegador.">
+  <title>Painel de Consignados — Demonstração</title>
+  <link rel="stylesheet" href="./assets/styles.css?v=2">
+  <script src="./assets/app.js?v=2" defer></script>
+</head>
+<body>
+  <div id="loginView" class="view login-view">
+    <main class="login-shell">
+      <section class="login-showcase" aria-labelledby="showcaseTitle">
+        <a class="brand-lockup" href="#login" aria-label="Painel de Consignados — início">
+          <span class="brand-symbol" aria-hidden="true">PC</span>
+          <span class="brand-copy"><strong>Painel Consignado</strong><small>Demonstração pública</small></span>
+        </a>
+
+        <div class="showcase-copy">
+          <p class="eyebrow light-eyebrow">Gestão comercial</p>
+          <p id="showcaseTitle" class="showcase-title">Decisões rápidas.<br>Saldo sob controle.</p>
+          <p>Uma interface que transforma lotes, acertos e devoluções em uma visão comercial objetiva.</p>
+        </div>
+
+        <div class="showcase-preview" aria-hidden="true">
+          <div class="preview-topline"><span></span><span></span></div>
+          <div class="preview-metrics"><span><i></i><b></b></span><span><i></i><b></b></span><span><i></i><b></b></span></div>
+          <div class="preview-chart"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="preview-list"><i></i><i></i><i></i></div>
+        </div>
+
+          <p class="showcase-note"><span aria-hidden="true">◆</span> Aplicação estática com dados 100% fictícios</p>
+      </section>
+
+      <section class="login-panel" aria-labelledby="loginTitle">
+        <div class="mobile-brand">
+          <span class="brand-symbol" aria-hidden="true">PC</span>
+          <span class="brand-copy"><strong>Painel Consignado</strong><small>Demonstração pública</small></span>
+        </div>
+
+        <div class="simulation-notice" role="note">
+          <span aria-hidden="true">i</span>
+          <p><strong>Demonstração segura</strong> Os perfis e os dados são simulados neste navegador. Nada é enviado ou salvo.</p>
+        </div>
+
+        <div class="login-heading">
+          <p class="eyebrow">Acesso à demonstração</p>
+          <h1 id="loginTitle">Escolha como explorar</h1>
+          <p>Selecione uma persona para conhecer as diferentes visões da solução.</p>
+        </div>
+
+        <div class="persona-grid" role="group" aria-label="Personas de demonstração">
+          <button class="persona-card" type="button" data-demo-role="admin">
+            <span class="persona-icon persona-admin" aria-hidden="true">A</span>
+            <span><strong>Administrador</strong><small>Visão consolidada, filtros e carteiras</small></span>
+            <span class="persona-arrow" aria-hidden="true">→</span>
+          </button>
+          <button class="persona-card" type="button" data-demo-role="seller">
+            <span class="persona-icon persona-seller" aria-hidden="true">V</span>
+            <span><strong>Vendedor</strong><small>Carteira individual com acesso restrito</small></span>
+            <span class="persona-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <div id="dashboardView" class="view dashboard-view" hidden>
+    <div id="app" class="app-shell">
+      <header class="topbar">
+        <a class="brand-lockup" href="#dashboard" aria-label="Painel de Consignados">
+          <span class="brand-symbol" aria-hidden="true">PC</span>
+          <span class="brand-copy"><strong>Painel Consignado</strong></span>
+          <small>Painel de consignados</small>
+        </a>
+
+        <nav id="modeSwitcher" class="mode-switcher" aria-label="Modo de visualização">
+          <button class="mode-button" type="button" data-mode="seller">Carteira</button>
+          <button class="mode-button active" type="button" data-mode="admin" aria-current="page">Administração</button>
+        </nav>
+
+        <div class="user-session">
+          <span id="userAvatar" class="user-avatar" aria-hidden="true">DA</span>
+          <span class="user-copy"><strong id="userName">Demo Administrador</strong><small id="userRole">Perfil administrador</small></span>
+          <button id="logoutButton" class="quiet-button" type="button">Sair</button>
+        </div>
+      </header>
+
+      <aside class="demo-strip" aria-label="Controles da demonstração">
+        <div><span class="demo-dot" aria-hidden="true"></span><strong>Modo demonstração</strong><span>Perfis e dados simulados localmente</span></div>
+        <label for="scenarioSelect"><span>Cenário</span>
+          <select id="scenarioSelect">
+            <option value="data">Com dados</option>
+            <option value="empty">Sem pendências</option>
+            <option value="error">Falha simulada</option>
+          </select>
+        </label>
+      </aside>
+
+      <main class="page">
+        <section class="hero" aria-labelledby="pageTitle">
+          <div>
+            <p id="eyebrow" class="eyebrow">Visão administrativa</p>
+            <h1 id="pageTitle">Panorama das carteiras</h1>
+            <p id="heroCopy" class="hero-copy">Priorize os lotes com maior saldo e acompanhe a operação em um só lugar.</p>
+          </div>
+          <div class="hero-actions">
+            <label id="sellerField" class="select-field" for="sellerSelect">
+              <span id="sellerFieldLabel">Filtrar vendedor</span>
+              <select id="sellerSelect" disabled><option>Carregando…</option></select>
+            </label>
+            <button id="refreshButton" class="primary-button refresh-button" type="button" disabled>
+              <span class="refresh-icon" aria-hidden="true">↻</span><span>Atualizar</span>
+            </button>
+          </div>
+        </section>
+
+        <div id="actionNotice" class="action-notice" role="alert" hidden></div>
+
+        <section id="metrics" class="metrics admin" aria-label="Resumo de saldos pendentes">
+          <article id="sellerMetric" class="metric-card metric-sellers"><span class="metric-label">Vendedores ativos</span><strong id="sellerCount">—</strong><small>com pendências na carteira</small></article>
+          <article class="metric-card metric-clients"><span class="metric-label">Clientes pendentes</span><strong id="clientCount">—</strong><small>com saldo em aberto</small></article>
+          <article class="metric-card metric-quantity"><span class="metric-label">Itens pendentes</span><strong id="pendingQuantity">—</strong><small>aguardando acerto</small></article>
+          <article class="metric-card metric-value"><span class="metric-label">Valor pendente</span><strong id="pendingValue">—</strong><small>saldo financeiro aberto</small></article>
+        </section>
+
+        <section id="sellerSummarySection" class="content-card seller-summary-section" aria-labelledby="sellerSummaryTitle" hidden>
+          <div class="section-heading">
+            <div><p class="section-kicker">Comparativo</p><h2 id="sellerSummaryTitle">Resumo por vendedor</h2></div>
+            <button id="showAllSellers" class="text-button" type="button">Mostrar todos</button>
+          </div>
+          <div id="sellerSummary" class="seller-summary"></div>
+        </section>
+
+        <section id="adminFilters" class="content-card filters-section" aria-labelledby="filtersTitle">
+          <div class="section-heading">
+            <div><p class="section-kicker">Refine a análise</p><h2 id="filtersTitle">Filtros locais</h2></div>
+            <button id="clearFilters" class="text-button" type="button">Limpar filtros</button>
+          </div>
+          <div class="filter-grid">
+            <label><span>Última data: de</span><input id="dateFrom" type="date"></label>
+            <label><span>Última data: até</span><input id="dateTo" type="date"></label>
+            <label><span>Qt. pendente mínima</span><input id="qtyMin" type="number" min="0" step="1" placeholder="0"></label>
+            <label><span>Valor mínimo</span><input id="valueMin" type="number" min="0" step="0.01" placeholder="R$ 0,00"></label>
+          </div>
+        </section>
+
+        <section id="dataPanel" class="data-panel" aria-labelledby="tableTitle" aria-busy="true">
+          <header class="panel-header">
+            <div><p class="section-kicker">Detalhamento</p><h2 id="tableTitle">Lotes com saldo pendente</h2><p id="resultContext" role="status" aria-live="polite">Preparando a demonstração…</p></div>
+            <label class="search-field" for="searchInput">
+              <span class="visually-hidden">Buscar cliente por nome ou código</span>
+              <span aria-hidden="true">⌕</span>
+              <input id="searchInput" type="search" autocomplete="off" placeholder="Buscar cliente ou código">
+            </label>
+          </header>
+
+          <div id="loadingState" class="loading-state" role="status" aria-live="polite">
+            <div class="loading-copy"><span class="spinner" aria-hidden="true"></span><span><strong>Organizando os lotes</strong><small>Simulando uma consulta local…</small></span></div>
+            <div class="skeleton-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </div>
+
+          <div id="errorState" class="state-card error-state" role="alert" hidden>
+            <span class="state-icon" aria-hidden="true">!</span>
+            <div><strong>Falha simulada ao carregar os dados</strong><p id="errorMessage">Este estado demonstra o tratamento de indisponibilidade.</p></div>
+            <button id="retryButton" class="secondary-button" type="button">Voltar aos dados</button>
+          </div>
+
+          <div id="emptyState" class="state-card empty-state" role="status" aria-live="polite" hidden>
+            <span class="state-icon" aria-hidden="true">◇</span>
+            <div><strong id="emptyTitle">Nenhuma pendência encontrada</strong><p id="emptyMessage">A carteira está em dia.</p></div>
+            <button id="emptyAction" class="secondary-button" type="button" hidden>Limpar filtros</button>
+          </div>
+
+          <div id="tableWrap" class="table-wrap" hidden>
+            <table>
+              <caption class="visually-hidden">Clientes e saldos de lotes consignados pendentes</caption>
+              <thead><tr>
+                <th id="sellerHeader" scope="col" data-sort="seller_name"><button class="sort-button" type="button">Vendedor <span aria-hidden="true">↕</span></button></th>
+                <th scope="col" data-sort="customer_name"><button class="sort-button" type="button">Cliente <span aria-hidden="true">↕</span></button></th>
+                <th scope="col" data-sort="last_date"><button class="sort-button" type="button">Último lote <span aria-hidden="true">↕</span></button></th>
+                <th scope="col" data-sort="qty_invoiced"><button class="sort-button numeric" type="button">Enviada <span aria-hidden="true">↕</span></button></th>
+                <th scope="col" data-sort="qty_sold"><button class="sort-button numeric" type="button">Vendida <span aria-hidden="true">↕</span></button></th>
+                <th scope="col" data-sort="qty_returned"><button class="sort-button numeric" type="button">Devolvida <span aria-hidden="true">↕</span></button></th>
+                <th scope="col" data-sort="qty_pending" aria-sort="descending"><button class="sort-button numeric" type="button">Pendente <span aria-hidden="true">↓</span></button></th>
+                <th scope="col" data-sort="pending_value"><button class="sort-button numeric" type="button">Valor pendente <span aria-hidden="true">↕</span></button></th>
+              </tr></thead>
+              <tbody id="tableRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="page-footer"><span id="updatedAt">Ainda não atualizado</span><span>Demonstração pública · dados exclusivamente sintéticos</span></footer>
+      </main>
+    </div>
+  </div>
+
+  <noscript><div class="noscript-message">Ative o JavaScript para abrir a demonstração interativa.</div></noscript>
+</body>
+</html>
