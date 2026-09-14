@@ -1,353 +1,334 @@
-# 📦 Painel de Gestão de Lotes Consignados
+<div align="center">
 
-Demonstração pública de uma solução criada a partir da análise de um processo real de consignação, com foco no acompanhamento de **lotes, acertos, devoluções e saldos pendentes por vendedor e cliente**.
+# Consignment Batch Management System
 
-[![Quality](https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/quality.yml/badge.svg)](https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/quality.yml)
-[![Deploy](https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/pages.yml/badge.svg)](https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/pages.yml)
-[![GitHub Pages](https://img.shields.io/badge/Demo-GitHub_Pages-222222?logo=githubpages&logoColor=white)](https://leviroiz.github.io/gestao-lotes-consignados-demo/)
-[![License](https://img.shields.io/badge/Licença-MIT-green.svg)](LICENSE)
+**Public portfolio demo for tracking consignment batches, settlements, returns, pending balances, and customer portfolios.**
 
-### 🌐 [Abrir demonstração online](https://leviroiz.github.io/gestao-lotes-consignados-demo/)
+<p>
+  <a href="https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/quality.yml">
+    <img src="https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/quality.yml/badge.svg" alt="Quality">
+  </a>
+  <a href="https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/pages.yml">
+    <img src="https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/pages.yml/badge.svg" alt="Deploy">
+  </a>
+  <a href="https://leviroiz.github.io/gestao-lotes-consignados-demo/">
+    <img src="https://img.shields.io/badge/Live_Demo-GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" alt="Live Demo">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
+  </a>
+</p>
 
-> **Nota sobre a versão pública**
+### 🌐 [Open the live demo](https://leviroiz.github.io/gestao-lotes-consignados-demo/)
+
+</div>
+
+---
+
+## 🚀 Overview
+
+This project was created from the analysis of a real consignment workflow involving batches, customers, sellers, settlements, returns, and pending balances.
+
+The goal was to transform fragmented operational information into a clearer interface capable of answering questions such as:
+
+- Which customers still have pending balances?
+- How many items were shipped, sold, returned, or remain pending?
+- Which sellers still have open settlements?
+- Which customer portfolios require attention?
+- How can this information be consolidated for administrative monitoring?
+
+> [!IMPORTANT]
+> **This repository contains a sanitized public demo, not the original operational system.**
 >
-> Esta demonstração foi reconstruída especificamente para portfólio utilizando dados 100% sintéticos.  
-> Não contém marcas, credenciais, endpoints, documentos, bancos de dados, integrações ou informações operacionais da empresa que originou o estudo.
+> All data, customers, sellers, scenarios, and interface content used in this version are synthetic.
 
 ---
 
-## 🎯 Contexto
+## ✨ Key Features
 
-O projeto nasceu da análise de um processo real de acompanhamento de produtos consignados.
+### 👨‍💼 Administrative View
 
-A operação precisava transformar informações sobre lotes e clientes em uma visão mais clara para responder perguntas como:
+- consolidated operational indicators
+- seller portfolio comparison
+- customer search
+- combined filters
+- sorting
+- pending quantity and value tracking
+- visibility across multiple seller portfolios
 
-- quais clientes ainda possuem saldo pendente;
-- quantas peças foram enviadas, vendidas e devolvidas;
-- qual o saldo atual de cada consignação;
-- quais vendedores possuem acertos em aberto;
-- quais carteiras precisam ser priorizadas;
-- como consolidar essas informações para acompanhamento administrativo.
+### 🧑‍💼 Seller View
 
-A proposta foi transformar essas regras operacionais em uma interface capaz de facilitar a leitura dos dados e reduzir a necessidade de conferências manuais.
+- individual customer portfolio
+- open consignment batches
+- pending quantities
+- pending values
+- upcoming settlement visibility
 
----
+### 🔎 Data Exploration
 
-## 💡 Solução
+- customer search
+- seller filters
+- period filters
+- quantity and value filters
+- configurable sorting
+- shipped, sold, returned, and pending quantities
+- responsive interface
 
-O conceito foi estruturado em torno de dois perfis de utilização.
+### 🧪 UI States
 
-### 👨‍💼 Administrador
+The demo also includes:
 
-Visão consolidada da operação, com recursos para:
-
-- acompanhar indicadores gerais;
-- comparar carteiras;
-- visualizar diferentes vendedores;
-- buscar clientes;
-- aplicar filtros combinados;
-- ordenar resultados;
-- identificar saldos e pendências.
-
-### 🧑‍💼 Vendedor
-
-Visão individual de uma carteira, com foco em:
-
-- clientes vinculados ao vendedor;
-- lotes ainda em aberto;
-- quantidades pendentes;
-- valores pendentes;
-- acompanhamento dos próximos acertos.
-
-Na demonstração pública, esses perfis são apenas simulados no navegador. Não existe autenticação real ou proteção de recursos.
+- loading state
+- empty-results state
+- simulated failure state
+- manual refresh
+- interface adaptation based on the selected user profile
 
 ---
 
-## 🔎 O que é possível explorar
+## 🧩 Public Demo vs. Original Prototype
 
-A demonstração inclui:
+The public repository intentionally differs from the prototype originally explored during the project.
 
-- alternância entre perfis administrativo e vendedor;
-- indicadores consolidados;
-- comparação resumida entre vendedores;
-- busca por cliente;
-- filtros por vendedor, período, quantidade e valor;
-- ordenação dos resultados;
-- quantidades enviadas, vendidas, devolvidas e pendentes;
-- valores pendentes;
-- estados de carregamento;
-- estado sem resultados;
-- cenário de falha simulada;
-- atualização da visualização;
-- interface responsiva;
-- adaptação da experiência conforme o perfil selecionado.
-
----
-
-## 🏗️ Arquitetura
-
-O projeto possui uma separação importante entre o **protótipo estudado originalmente** e a **demonstração publicada neste repositório**.
-
-| Protótipo original | Demonstração pública |
+| Original prototype | Public portfolio demo |
 |---|---|
-| Arquitetura full stack | Aplicação estática |
-| Backend e API | Sem backend |
-| Persistência de dados | Dados sintéticos em JavaScript |
-| Autenticação e perfis | Perfis simulados localmente |
-| Integração com ERP | Sem integrações externas |
-| Regras processadas pelo sistema | Regras executadas no navegador |
-| Ambiente operacional | GitHub Pages |
+| Full-stack architecture | Static web application |
+| Backend and API | No backend |
+| Data persistence | Synthetic JavaScript data |
+| Authentication and authorization | Locally simulated profiles |
+| ERP integration concepts | No external integrations |
+| Server-side business rules | Browser-side demo logic |
+| Operational environment | GitHub Pages |
 
-### Arquitetura conceitual do protótipo original
+### Original prototype concepts
+
+The original study explored technologies and concepts including:
+
+`Python` · `FastAPI` · `Jinja2` · `SQLite` · `HTTPX` · `REST APIs` · `Pytest`
+
+It also explored:
+
+- authentication
+- role-based authorization
+- session management
+- data persistence
+- business rules
+- ERP/API integration architecture
+- automated testing
+
+> These components belong to the original prototype and are **not included in the public repository**.
+
+---
+
+## 🏗️ Architecture
+
+### Original Concept
 
 ```text
-Usuário
-   ↓
-Interface Web
-   ↓
+User
+  │
+  ▼
+Web Interface
+  │
+  ▼
 Jinja2 + HTML + CSS + JavaScript
-   ↓
+  │
+  ▼
 FastAPI
-   ↓
-Regras de negócio
-   ↓
+  │
+  ▼
+Business Rules
+  │
+  ▼
 SQLite
-   ↓
-Camada de integração
-   ↓
-ERP / API REST
+  │
+  ▼
+Integration Layer
+  │
+  ▼
+ERP / REST API
 ```
 
-O estudo original envolveu conceitos e tecnologias como:
-
-- Python;
-- FastAPI;
-- Jinja2;
-- HTML, CSS e JavaScript;
-- SQLite;
-- HTTPX;
-- API REST;
-- autenticação;
-- autorização por perfil;
-- gerenciamento de sessão;
-- persistência;
-- testes automatizados com Pytest.
-
-> Esses componentes pertencem ao protótipo original e **não fazem parte do código disponibilizado neste repositório público**.
-
----
-
-## 🌐 Arquitetura da demonstração
-
-A versão pública foi deliberadamente simplificada:
+### Public Demo
 
 ```text
-Dados sintéticos em JavaScript
-          ↓
-Filtros e regras de consolidação
-          ↓
-Controle local do perfil
-          ↓
-Manipulação do DOM
-          ↓
-Interface responsiva
+Synthetic JavaScript Data
+          │
+          ▼
+Filtering & Aggregation Rules
+          │
+          ▼
+Local Profile Control
+          │
+          ▼
+DOM Manipulation
+          │
+          ▼
+Responsive Interface
 ```
 
-Essa versão:
-
-- não possui backend;
-- não possui banco de dados;
-- não realiza autenticação real;
-- não utiliza cookies;
-- não utiliza `localStorage`;
-- não depende de serviços internos;
-- não realiza integração com ERP;
-- não utiliza endpoints privados.
-
-Essa decisão permite demonstrar a lógica e a experiência do projeto sem expor componentes da operação original.
+The public demo runs entirely in the browser and does not use a backend, database, authentication service, cookies, `localStorage`, private endpoints, or ERP integrations.
 
 ---
 
-## 🛠️ Tecnologias da versão pública
+## 🛠️ Public Demo Stack
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)
+<p>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions">
+  <img src="https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" alt="GitHub Pages">
+</p>
 
-### Frontend
+The public version uses:
 
-- HTML5 semântico;
-- CSS responsivo;
-- JavaScript sem frameworks;
-- APIs nativas do DOM;
-- `Intl.NumberFormat` para valores e quantidades;
-- filtros e ordenação executados no navegador.
-
-### Infraestrutura
-
-- GitHub Actions;
-- GitHub Pages;
-- pipeline automatizado de validação;
-- deploy automático da branch `main`.
+- semantic HTML
+- responsive CSS
+- vanilla JavaScript
+- native DOM APIs
+- `Intl.NumberFormat`
+- browser-side filtering and sorting
+- GitHub Actions
+- automatic GitHub Pages deployment
 
 ---
 
-## 🧪 Qualidade e CI
+## 🧠 Product Decision
 
-O repositório possui um fluxo de validação executado automaticamente em pushes e pull requests.
+During the project, the analysis revealed that the company already had an internal feature capable of addressing a significant part of the operational problem.
 
-O pipeline executa:
+Instead of introducing a new system only because a prototype had already been developed, the operational decision was to adopt and structure the existing solution with the team.
+
+The prototype therefore fulfilled its role in:
 
 ```text
-Código enviado
-      ↓
+Operational Problem
+        │
+        ▼
+Process Analysis
+        │
+        ▼
+Requirements
+        │
+        ▼
+Business Rules
+        │
+        ▼
+Solution Proposal
+        │
+        ▼
+Prototype
+        │
+        ▼
+Validation
+        │
+        ▼
+Product Decision
+```
+
+This project is intentionally **not presented as a production deployment**.
+
+Sometimes the best software decision is not to introduce another application.
+
+---
+
+## 🧪 Quality & CI
+
+The repository includes automated checks executed through GitHub Actions.
+
+The quality workflow validates:
+
+- JavaScript syntax
+- basic `index.html` structure
+- potentially sensitive files
+- database and certificate file extensions
+- `.env` files
+- private keys
+- common API key patterns
+- client secrets
+- bearer tokens
+- accidental network calls
+
+```text
+Push / Pull Request
+        │
+        ▼
 GitHub Actions
-      ↓
-Validação da sintaxe JavaScript
-      ↓
-Auditoria da demonstração pública
-      ↓
-Aprovação / bloqueio
+        │
+        ├── JavaScript Validation
+        ├── Public Demo Audit
+        └── Sensitive Content Checks
+                    │
+                    ▼
+              Pass / Block
 ```
 
-Entre as verificações realizadas estão:
-
-- validação da sintaxe de `assets/app.js`;
-- verificação da existência e estrutura básica de `index.html`;
-- busca por arquivos potencialmente sensíveis;
-- detecção de extensões de bancos de dados e certificados;
-- identificação de arquivos como `.env` e chaves privadas;
-- busca por padrões comuns de API keys;
-- busca por client secrets;
-- busca por bearer tokens;
-- detecção de chamadas de rede acidentais na aplicação.
-
-O deploy para o GitHub Pages é realizado por um workflow separado.
+Deployment to GitHub Pages is handled by a separate workflow.
 
 ---
 
-## 🔐 Segurança e privacidade
+## 🔒 Security & Privacy
 
-A preparação da demonstração pública seguiu o princípio de **não expor informações relacionadas à operação que originou o projeto**.
+The public demo was prepared specifically to avoid exposing information from the original operation.
 
-Algumas decisões adotadas:
+It contains:
 
-- utilização exclusiva de dados fictícios;
-- remoção de marcas e nomes reais;
-- ausência de credenciais;
-- ausência de bancos de dados;
-- ausência de endpoints internos;
-- ausência de integrações corporativas;
-- nenhuma coleta de dados dos visitantes;
-- conteúdo dinâmico renderizado com APIs seguras do DOM, como `textContent`;
-- auditoria automática antes da publicação.
+- only synthetic data
+- no real company brands or names
+- no credentials
+- no databases
+- no internal endpoints
+- no corporate integrations
+- no visitor data collection
 
-A demonstração não representa uma arquitetura de segurança de produção.
+Dynamic content is rendered using safe DOM APIs such as `textContent`.
 
-Recursos como autenticação real, autorização no servidor, criptografia, persistência segura e proteção contra abuso exigiriam backend e análise específica de arquitetura.
+> [!NOTE]
+> This demo does not represent a production security architecture.
+>
+> Real authentication, server-side authorization, secure persistence, encryption, and abuse protection would require a backend and a dedicated security design.
 
-Mais detalhes:
-
-👉 [SECURITY.md](SECURITY.md)
-
----
-
-## 🏢 Decisão de produto
-
-Durante a evolução do projeto, foi identificado que a empresa já possuía uma funcionalidade interna capaz de atender parte relevante do problema.
-
-A decisão operacional foi aproveitar essa solução existente e estruturar seu uso junto à equipe, em vez de introduzir um novo sistema.
-
-Por esse motivo, este projeto **não é apresentado como uma aplicação implantada em produção**.
-
-O protótipo cumpriu seu papel durante as etapas de:
-
-```text
-Problema operacional
-        ↓
-Análise do processo
-        ↓
-Levantamento de requisitos
-        ↓
-Modelagem das regras
-        ↓
-Proposta de solução
-        ↓
-Protótipo
-        ↓
-Validação
-        ↓
-Decisão operacional
-```
-
-Essa decisão também faz parte do desenvolvimento de software: nem todo problema precisa resultar na implantação de uma nova aplicação.
+For additional details, see [SECURITY.md](SECURITY.md).
 
 ---
 
-## 🧠 O que este projeto demonstra
+## ▶️ Running Locally
 
-O projeto reúne experiência prática em:
+The public demo has no external runtime dependencies.
 
-- análise de processos;
-- levantamento de requisitos;
-- transformação de regras de negócio em software;
-- modelagem de perfis de usuário;
-- desenho de fluxos e interfaces;
-- desenvolvimento frontend;
-- arquitetura backend;
-- APIs REST;
-- persistência;
-- integração entre sistemas;
-- testes;
-- Git e GitHub;
-- CI/CD;
-- segurança;
-- preparação de uma versão pública sem exposição de dados corporativos.
-
----
-
-## 🚀 Executando localmente
-
-A demonstração não possui dependências externas.
-
-Clone o repositório:
+Clone the repository:
 
 ```bash
 git clone https://github.com/leviroiz/gestao-lotes-consignados-demo.git
 cd gestao-lotes-consignados-demo
 ```
 
-Depois abra:
+Then open:
 
 ```text
 index.html
 ```
 
-diretamente no navegador.
+in your browser.
 
-Também é possível baixar o repositório como ZIP e abrir o arquivo `index.html`.
+You can also use the hosted version:
+
+### 🌐 [Live Demo](https://leviroiz.github.io/gestao-lotes-consignados-demo/)
 
 ---
 
-## 📁 Estrutura principal
+## 📁 Repository Structure
 
 ```text
 gestao-lotes-consignados-demo/
-│
 ├── .github/
 │   └── workflows/
-│       ├── pages.yml
-│       └── quality.yml
-│
 ├── assets/
 │   ├── app.js
 │   └── styles.css
-│
 ├── scripts/
 │   └── audit_public_demo.py
-│
 ├── index.html
 ├── README.md
 ├── SECURITY.md
@@ -357,15 +338,6 @@ gestao-lotes-consignados-demo/
 
 ---
 
-## 👨‍💻 Autor
+## 📄 License
 
-Projeto e implementação por **Carlos Levi**.
-
-[![GitHub](https://img.shields.io/badge/GitHub-leviroiz-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/leviroiz)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-leviroiz-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leviroiz)
-
----
-
-## 📄 Licença
-
-Código disponibilizado sob a [Licença MIT](LICENSE).
+This project is available under the [MIT License](LICENSE).
