@@ -44,6 +44,18 @@ The goal was to transform fragmented operational information into a clearer inte
 
 ---
 
+## 🖥️ Demo Preview
+
+<p align="center">
+  <img src="docs/images/preview.png" alt="Consignment management dashboard public demo" width="1000">
+</p>
+
+The public demo presents a seller-focused view with portfolio indicators, pending balances, customer search, sorting, and detailed consignment status.
+
+All information shown in the interface is synthetic and exists only for demonstration purposes.
+
+---
+
 ## ✨ Key Features
 
 ### 👨‍💼 Administrative View
