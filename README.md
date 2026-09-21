@@ -1,8 +1,10 @@
-<div align="center">
-
 # Consignment Batch Management System
 
-**Public portfolio demo for tracking consignment batches, settlements, returns, pending balances, and customer portfolios.**
+A public reconstruction of a consignment workflow explored to make batches, settlements, returns and pending balances easier to understand.
+
+The project started from an operational problem: information was fragmented across customers, sellers and consignment batches, making it difficult to see what was still pending and where attention was needed.
+
+The most important outcome was not the prototype itself. During the analysis, an existing internal solution was found to already address a significant part of the problem, changing the final product decision.
 
 <p>
   <a href="https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/quality.yml">
@@ -11,223 +13,72 @@
   <a href="https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/pages.yml">
     <img src="https://github.com/leviroiz/gestao-lotes-consignados-demo/actions/workflows/pages.yml/badge.svg" alt="Deploy">
   </a>
-  <a href="https://leviroiz.github.io/gestao-lotes-consignados-demo/">
-    <img src="https://img.shields.io/badge/Live_Demo-GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" alt="Live Demo">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
-  </a>
 </p>
 
-### 🌐 [Open the live demo](https://leviroiz.github.io/gestao-lotes-consignados-demo/)
-
-</div>
+**[Open the live demo →](https://leviroiz.github.io/gestao-lotes-consignados-demo/)**
 
 ---
 
-## 🚀 Overview
+## Context
 
-This project was created from the analysis of a real consignment workflow involving batches, customers, sellers, settlements, returns, and pending balances.
+The workflow involved tracking consignment activity across customers and sellers.
 
-The goal was to transform fragmented operational information into a clearer interface capable of answering questions such as:
+The main questions were operational:
 
-- Which customers still have pending balances?
-- How many items were shipped, sold, returned, or remain pending?
-- Which sellers still have open settlements?
-- Which customer portfolios require attention?
-- How can this information be consolidated for administrative monitoring?
+- Which customers still have open balances?
+- How many items were shipped, sold, returned or remain pending?
+- Which seller portfolios require attention?
+- What value is still open?
+- How can this information be consolidated without manually checking multiple records?
 
-> [!IMPORTANT]
-> **This repository contains a sanitized public demo, not the original operational system.**
+The project explored how these questions could be represented in a clearer operational interface.
+
+> [!NOTE]
+> This repository is a sanitized public reconstruction.
 >
-> All data, customers, sellers, scenarios, and interface content used in this version are synthetic.
+> All customers, sellers, values, dates and operational scenarios are synthetic.
 
 ---
 
-## 🖥️ Demo Preview
+## The product decision
 
-<p align="center">
-  <img src="docs/images/preview.png" alt="Consignment management dashboard public demo" width="1000">
-</p>
+A full-stack prototype was initially explored around the workflow.
 
-The public demo presents a seller-focused view with portfolio indicators, pending balances, customer search, sorting, and detailed consignment status.
-
-All information shown in the interface is synthetic and exists only for demonstration purposes.
-
----
-
-## ✨ Key Features
-
-### 👨‍💼 Administrative View
-
-- consolidated operational indicators
-- seller portfolio comparison
-- customer search
-- combined filters
-- sorting
-- pending quantity and value tracking
-- visibility across multiple seller portfolios
-
-### 🧑‍💼 Seller View
-
-- individual customer portfolio
-- open consignment batches
-- pending quantities
-- pending values
-- upcoming settlement visibility
-
-### 🔎 Data Exploration
-
-- customer search
-- seller filters
-- period filters
-- quantity and value filters
-- configurable sorting
-- shipped, sold, returned, and pending quantities
-- responsive interface
-
-### 🧪 UI States
-
-The demo also includes:
-
-- loading state
-- empty-results state
-- simulated failure state
-- manual refresh
-- interface adaptation based on the selected user profile
-
----
-
-## 🧩 Public Demo vs. Original Prototype
-
-The public repository intentionally differs from the prototype originally explored during the project.
-
-| Original prototype | Public portfolio demo |
-|---|---|
-| Full-stack architecture | Static web application |
-| Backend and API | No backend |
-| Data persistence | Synthetic JavaScript data |
-| Authentication and authorization | Locally simulated profiles |
-| ERP integration concepts | No external integrations |
-| Server-side business rules | Browser-side demo logic |
-| Operational environment | GitHub Pages |
-
-### Original prototype concepts
-
-The original study explored technologies and concepts including:
-
-`Python` · `FastAPI` · `Jinja2` · `SQLite` · `HTTPX` · `REST APIs` · `Pytest`
-
-It also explored:
-
-- authentication
-- role-based authorization
-- session management
-- data persistence
-- business rules
-- ERP/API integration architecture
-- automated testing
-
-> These components belong to the original prototype and are **not included in the public repository**.
-
----
-
-## 🏗️ Architecture
-
-### Original Concept
+That work included concepts such as:
 
 ```text
-User
-  │
-  ▼
-Web Interface
-  │
-  ▼
-Jinja2 + HTML + CSS + JavaScript
-  │
-  ▼
+Python
 FastAPI
-  │
-  ▼
-Business Rules
-  │
-  ▼
+Jinja2
 SQLite
-  │
-  ▼
-Integration Layer
-  │
-  ▼
-ERP / REST API
+REST APIs
+HTTPX
+authentication
+authorization
+sessions
+persistence
+ERP integration
 ```
 
-### Public Demo
+But building software was not the final objective.
+
+The analysis eventually showed that an existing internal feature could already solve a significant part of the operational problem.
+
+Instead of introducing another application simply because a prototype had already been created, the better operational path was to structure and adopt the existing solution.
+
+The project therefore became an example of a broader process:
 
 ```text
-Synthetic JavaScript Data
-          │
-          ▼
-Filtering & Aggregation Rules
-          │
-          ▼
-Local Profile Control
-          │
-          ▼
-DOM Manipulation
-          │
-          ▼
-Responsive Interface
-```
-
-The public demo runs entirely in the browser and does not use a backend, database, authentication service, cookies, `localStorage`, private endpoints, or ERP integrations.
-
----
-
-## 🛠️ Public Demo Stack
-
-<p>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions">
-  <img src="https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" alt="GitHub Pages">
-</p>
-
-The public version uses:
-
-- semantic HTML
-- responsive CSS
-- vanilla JavaScript
-- native DOM APIs
-- `Intl.NumberFormat`
-- browser-side filtering and sorting
-- GitHub Actions
-- automatic GitHub Pages deployment
-
----
-
-## 🧠 Product Decision
-
-During the project, the analysis revealed that the company already had an internal feature capable of addressing a significant part of the operational problem.
-
-Instead of introducing a new system only because a prototype had already been developed, the operational decision was to adopt and structure the existing solution with the team.
-
-The prototype therefore fulfilled its role in:
-
-```text
-Operational Problem
+Operational problem
         │
         ▼
-Process Analysis
+Process analysis
         │
         ▼
 Requirements
         │
         ▼
-Business Rules
-        │
-        ▼
-Solution Proposal
+Business rules
         │
         ▼
 Prototype
@@ -236,76 +87,231 @@ Prototype
 Validation
         │
         ▼
-Product Decision
+Product decision
 ```
 
-This project is intentionally **not presented as a production deployment**.
+The prototype still had value: it helped clarify the process, expose requirements and make the alternatives easier to evaluate.
 
-Sometimes the best software decision is not to introduce another application.
+Sometimes the useful outcome of software work is deciding that another system should not be introduced.
 
 ---
 
-## 🧪 Quality & CI
+## What made this tricky
 
-The repository includes automated checks executed through GitHub Actions.
+### Turning operational data into useful information
 
-The quality workflow validates:
+Raw quantities alone were not enough.
 
-- JavaScript syntax
-- basic `index.html` structure
-- potentially sensitive files
-- database and certificate file extensions
-- `.env` files
-- private keys
+The interface needed to preserve the relationship between:
+
+```text
+shipped
+sold
+returned
+pending
+pending value
+```
+
+while still making it easy to identify customers and portfolios that needed attention.
+
+### Different perspectives
+
+An administrator needs a consolidated view across multiple sellers.
+
+A seller needs a narrower view of their own portfolio.
+
+The public demo represents both perspectives, but these profiles are intentionally simulated in the browser.
+
+They are **not authentication or authorization mechanisms**.
+
+### Filtering without losing context
+
+The administrative view combines:
+
+- seller filtering
+- customer search
+- date ranges
+- minimum pending quantity
+- minimum pending value
+- configurable sorting
+
+The metrics are recalculated from the currently visible data, so the summary remains consistent with the active filters.
+
+### Operational states matter too
+
+A real interface is not always displaying a successful response.
+
+The demo also represents:
+
+```text
+loading
+data available
+no pending data
+no filter results
+simulated failure
+```
+
+These states are part of the interface rather than afterthoughts.
+
+---
+
+## Public demo
+
+<p align="center">
+  <img src="docs/images/preview.png" alt="Consignment management dashboard public demo" width="1000">
+</p>
+
+The demo includes two simulated entry profiles:
+
+### Administrator
+
+The administrative view provides:
+
+- consolidated portfolio metrics
+- seller comparison
+- seller filtering
+- customer search
+- date filters
+- pending quantity filters
+- pending value filters
+- sorting across operational fields
+
+### Seller
+
+The seller view focuses on a single portfolio and exposes the customers and consignment balances associated with that simulated seller.
+
+Because this is a static public demonstration, profile selection happens entirely in the browser and does not protect any resource.
+
+---
+
+## Architecture
+
+The public version deliberately avoids reproducing the original operational environment.
+
+```text
+Synthetic Data
+      │
+      ▼
+Local Application State
+      │
+      ├── Profile
+      ├── Scenario
+      ├── Filters
+      └── Sorting
+      │
+      ▼
+Filtering & Aggregation
+      │
+      ▼
+DOM Rendering
+      │
+      ▼
+Responsive Dashboard
+```
+
+The application is built with:
+
+```text
+HTML
+CSS
+Vanilla JavaScript
+```
+
+and runs entirely in the browser.
+
+There is no:
+
+```text
+backend
+database
+authentication service
+ERP connection
+external API
+cookie storage
+localStorage
+```
+
+The data used by the interface is defined locally in JavaScript.
+
+---
+
+## Interaction model
+
+The demo includes synthetic scenarios that can be changed directly from the interface:
+
+```text
+Com dados
+Sem pendências
+Falha simulada
+```
+
+Loading is also simulated locally so that the UI can demonstrate asynchronous application states without making network requests.
+
+Search, filtering, sorting and metrics are processed entirely on the client side.
+
+Dynamic operational values are inserted into the interface using DOM APIs such as `textContent`.
+
+---
+
+## Quality checks
+
+The repository includes a GitHub Actions workflow that runs on pushes and pull requests.
+
+It validates JavaScript syntax:
+
+```bash
+node --check assets/app.js
+```
+
+and executes a custom audit:
+
+```bash
+python scripts/audit_public_demo.py
+```
+
+The audit checks the public repository for issues such as:
+
+- forbidden database files
+- environment files
+- private key files
 - common API key patterns
 - client secrets
 - bearer tokens
-- accidental network calls
+- accidental network calls in the public application
+- basic HTML parsing
 
-```text
-Push / Pull Request
-        │
-        ▼
-GitHub Actions
-        │
-        ├── JavaScript Validation
-        ├── Public Demo Audit
-        └── Sensitive Content Checks
-                    │
-                    ▼
-              Pass / Block
-```
+The workflow is intended to reduce the chance of accidentally introducing private operational material or external integrations into the public reconstruction.
 
-Deployment to GitHub Pages is handled by a separate workflow.
+A separate GitHub Actions workflow deploys the static application to GitHub Pages.
 
 ---
 
-## 🔒 Security & Privacy
+## Security and privacy
 
-The public demo was prepared specifically to avoid exposing information from the original operation.
+The public demo contains only synthetic information.
 
-It contains:
+It includes no:
 
-- only synthetic data
-- no real company brands or names
-- no credentials
-- no databases
-- no internal endpoints
-- no corporate integrations
-- no visitor data collection
+- real customers
+- real sellers
+- real company branding
+- credentials
+- databases
+- private endpoints
+- ERP integrations
+- production configuration
 
-Dynamic content is rendered using safe DOM APIs such as `textContent`.
+The application performs no network requests and collects no visitor data.
 
-> [!NOTE]
-> This demo does not represent a production security architecture.
->
-> Real authentication, server-side authorization, secure persistence, encryption, and abuse protection would require a backend and a dedicated security design.
+The profile selector is only an interface simulation and must not be interpreted as a real access-control mechanism.
 
-For additional details, see [SECURITY.md](SECURITY.md).
+A production implementation would require dedicated decisions around authentication, authorization, persistence, encryption and backend security.
+
+More details are available in [SECURITY.md](SECURITY.md).
 
 ---
 
-## ▶️ Running Locally
+## Running locally
 
 The public demo has no external runtime dependencies.
 
@@ -322,15 +328,15 @@ Then open:
 index.html
 ```
 
-in your browser.
+in a browser.
 
 You can also use the hosted version:
 
-### 🌐 [Live Demo](https://leviroiz.github.io/gestao-lotes-consignados-demo/)
+**[Live demo →](https://leviroiz.github.io/gestao-lotes-consignados-demo/)**
 
 ---
 
-## 📁 Repository Structure
+## Repository structure
 
 ```text
 gestao-lotes-consignados-demo/
@@ -350,6 +356,25 @@ gestao-lotes-consignados-demo/
 
 ---
 
-## 📄 License
+## Public reconstruction
 
-This project is available under the [MIT License](LICENSE).
+The public version is intentionally smaller than the prototype explored during the project.
+
+| Prototype exploration | Public demo |
+|---|---|
+| Full-stack architecture | Static application |
+| Backend | Browser only |
+| Persistent data | Synthetic in-memory data |
+| Authentication concepts | Simulated profiles |
+| ERP/API integration concepts | No external integrations |
+| Server-side rules | Local demonstration logic |
+
+The goal of this repository is not to reproduce the original environment.
+
+It is to preserve the **problem, reasoning, interface concepts and product decisions** in a form that can be inspected publicly without exposing operational systems or data.
+
+---
+
+## License
+
+Available under the [MIT License](LICENSE).
